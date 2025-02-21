@@ -1,0 +1,281 @@
+/* 
+  PROFESSIONAL PALETTE:
+  - Primary: Green (#28a745)
+  - Secondary: Dark Gray (#2f2f2f)
+  - Text: #333333
+  - Background Gradient: Light Gray to Gray
+  - Container: White
+  - Success Button: Green to Teal
+*/
+
+/* --------------------
+   IMPORT A MODERN FONT
+-------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+/* --------------------
+   COLOR VARIABLES
+-------------------- */
+:root {
+  --primary: #28a745;         /* Green */
+  --secondary: #2f2f2f;       /* Dark Gray (near black) */
+  --text: #333333;            /* Dark text */
+  --white: #ffffff;           /* Container background */
+  --success-start: #28a745;   /* Start of success gradient (green) */
+  --success-end: #20c997;     /* Teal for success gradient end */
+  --border-radius: 6px;
+  --focus-color: #9dc3b2;     /* Subtle highlight for focus outlines */
+}
+
+/* --------------------
+   GLOBAL RESETS
+-------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', Arial, sans-serif; /* Fallback if font not loaded */
+}
+
+/* --------------------
+   BODY
+-------------------- */
+body {
+  /* Subtle diagonal gradient from light gray to slightly darker gray */
+  background: linear-gradient(135deg, #f1f1f1 0%, #dcdcdc 100%);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --------------------
+   CONTAINER
+-------------------- */
+.container {
+  background: var(--white);
+  border: 1px solid var(--secondary);
+  border-radius: var(--border-radius);
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.container:hover,
+.container:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+header p {
+  font-size: 13px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+/* --------------------
+   MAIN CONTENT
+-------------------- */
+main {
+  margin-bottom: 20px;
+}
+
+#instructions {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+#instructions p {
+  margin-bottom: 10px;
+}
+
+#instructions table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+#instructions th,
+#instructions td {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+#instructions th {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+#instructions td {
+  background-color: var(--white);
+  color: var(--text);
+}
+
+/* --------------------
+   FORM & INPUTS
+-------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+input[type="file"] {
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  padding: 8px;
+  background-color: var(--white);
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+input[type="file"]:hover {
+  border-color: var(--primary);
+}
+
+input[type="file"]:focus {
+  outline: none;
+  border-color: var(--focus-color);
+  box-shadow: 0 0 0 2px rgba(157, 195, 178, 0.5);
+}
+
+/* --------------------
+   BUTTONS
+-------------------- */
+button {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  background-color: #218838; /* darker green */
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(157, 195, 178, 0.5);
+}
+
+#downloadButton {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Success button (in animation box) */
+.success-button {
+  background: linear-gradient(45deg, var(--success-start), var(--success-end));
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: default;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.success-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------
+   PROGRESS BAR
+-------------------- */
+/* 
+   Wrap <progress> in a .progress-section if you want
+   to hide/show the entire section easily.
+*/
+.progress-section {
+  margin: 12px 0;
+}
+
+/* Keep it initially hidden if desired */
+.hidden {
+  display: none;
+}
+
+progress {
+  width: 100%;
+  height: 14px;
+  appearance: none;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+}
+
+/* For Chrome/Safari/Opera */
+progress::-webkit-progress-bar {
+  background-color: #f0f0f0; /* Light gray */
+  border-radius: var(--border-radius);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--primary); /* Green fill */
+  border-radius: var(--border-radius);
+}
+
+/* --------------------
+   MESSAGES & ANIMATION
+-------------------- */
+#message[role="alert"] {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+#animation-box {
+  font-size: 24px;
+  color: var(--secondary);
+  margin-bottom: 10px;
+  animation: sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+    color: var(--primary);
+  }
+}
+
+.warning {
+  color: #dc3545 !important; /* Red for warnings */
+}

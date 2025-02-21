@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anchor Tag</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <!-- Matching the site title for consistency -->
+      <h1>Anchor Tag Builder</h1>
+      <p>Upload a CSV and get anchor tags in seconds!</p>
+    </header>
+
+    <main>
+      <!-- Brief Instructions -->
+      <section id="instructions">
+        <p>
+          Include one URL column (<code>product_url</code>) 
+          and one keyword column (<code>keywords</code>).
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>product_url</th>
+              <th>keywords</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>https://example.com/page</td>
+              <td>marketing, seo</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Upload Form -->
+      <form id="uploadForm" enctype="multipart/form-data">
+        <label for="fileInput" class="visually-hidden">CSV File</label>
+        <input type="file" id="fileInput" name="csvFile" accept=".csv"/>
+        <button type="submit">Build Links</button>
+      </form>
+
+      <!-- Progress Bar Section -->
+      <!-- "hidden" class is applied at first; remove via JS when uploading starts -->
+      <div class="progress-section hidden">
+        <label for="uploadProgress" class="visually-hidden">Upload Progress</label>
+        <progress id="uploadProgress" value="0" max="100"></progress>
+      </div>
+
+      <!-- Alert/Message -->
+      <div id="message" role="alert"></div>
+
+      <!-- Download Button -->
+      <button id="downloadButton" class="hidden">Download Links</button>
+    </main>
+
+    <!-- Simple Animation -->
+    <div id="animation-box" aria-live="polite">✨</div>
+  </div>
+  
+  <script src="/static/script.js" defer></script>
+</body>
+</html>
